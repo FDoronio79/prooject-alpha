@@ -96,7 +96,71 @@
       * [x] admin.site.register(Project)
 * [x] Run Test for Feature 4
   * [x] python manage.py test tests.test_feature_04
-* [ ] Add, commit, and push progress
+* [x] Add, commit, and push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 4 complete"
+  * [x] git push
+
+# Feature 5 
+* Creating List View, registering the view for a path, registering the projects paths with the tracker project, creating a template for the view
+* [x] Create a view that will get **all** of the instances of the Project model and puts them in the context for the template
+  * [x] projects/views.py
+    * [x] import Project model
+      * [x] from projects.models import (Project, )
+    * [x] create the list view function
+      * [x] def show_projects(request):
+    * [x] create the attributes of the view function
+      * [x] projects = Project.objects.all()
+      * [x] context = { "projects": projects }
+      * [x] return render(request, 'projects/list.html', context)
+* [x] create a new file in the **projects** app called *urls.py*
+  * [x] projects/new file
+    * [x] urls.py
+* [x] Register the view in the **projects** app for the path **""** and the name **list_projects**
+  * [x] Import path from django.urls
+    * [x] from django.urls import path
+  * [x] Import view from projects.views
+    * [x] from projects.views import ( show_projects, )
+  * [x] Create urlpatters variable with a list value
+    * [x] urlpatterns = [ ]
+  * [x] register path to urlpatterns
+    * [x] path("", show_projects, name="list_projects")
+* [ ] Include the URL patterns from **projects** *app* in the **tracker** *project* with the prefix "projects/"
+  * [x] tracker/urls.py
+    * [x] import include
+    * [x] from djang.urls import path, include
+  * [x] register path to urlpatterns
+    * [x] path('projects/', include(projects.urls)), *don't forget your commas*
+* [x] Create templates folder in **projects app**
+  * [x] projects/new folder
+    * [x] templates
+* [x] Create a **projects** folder in the **templates** folder
+  * [x] projects/templates/new folder
+    * [x] projects
+* [x] Create a base.html in the templates folder
+  * [x] templates/new file
+    * [x] base.html
+* [x] In the base.html put the fundamental 5 and block content for the body
+  * [x] open main tag {% block content %} {% endblock %} close main tag
+* [x] Create list.html file in projects folder
+  * [x] templates/projects/new file
+    * [x] list.html
+* [ ] Template specifications
+  * [x] extend base (so the template inherits the fundamental 5 from base.html)
+    * [x] {% exntends 'base.html' %}
+  * [x] **main** tag that contains
+    * [x] **div** tag that contains
+      * [x] **h1** tag with the content **My Projects**
+      * [x] *if there are no projects created, then*
+        * [x] a **p** tag with the content **"You are not assigned to any projects"**
+      * [x] *else*
+        * [x] a **table** that has **two** columns,
+          * [x] first colum with a **header** **"Name"**
+            * [x] row with **names** of the projects
+          * [x] second column with the **header "Number of tasks"**
+            * [x] nothing here yet because we don't have any yet
+* [x] Run Test for Feature 5
+* [ ] Add, commit, push progress
   * [ ] git add .
-  * [ ] git commit -m "Feature 4 complete"
+  * [ ] git commit -m "Feature 5 complete"
   * [ ] git push
