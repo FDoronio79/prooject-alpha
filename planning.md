@@ -54,8 +54,35 @@
   * [x] python manage.py createsuperuser
 * [x] Execute test for Feature 2
   * [x] python manage.py test tests.test_feature_02
-* [ ] Add, commit, and push changes
-  * [ ] git add .
-  * [ ] git commit -m "Feature 2 complete"
-  * [ ] git push
+* [x] Add, commit, and push changes
+  * [x] git add .
+  * [x] git commit -m "Feature 2 complete"
+  * [x] git push
 
+# Feature 3 WORKING IN THE PROJECTS APP ONLY
+* [x] Create a Project model in the **PROJECT APP**
+  * [x] projects/models.py
+    * [x] class Project(models.Model):
+* [x] Import User model
+    * [x] from django.contrib.auth.models import User
+* [x] Criteria for Project model
+  *  Name | Type | Constraints
+  * [x] name, string, maximum length of 200 characters
+    * [x] name = models.CharField(max_length=200)
+  * [x] description, string, no maximum length
+    * [x] description = models.TextField()
+  * [x] members, many-to-many, Refers to the auth.User model, related name "projects"
+    * [x] members = models.ManyToManyField(User, related_name="projects")
+* [x] Create a method to a convert name into a string using __str__
+  * [x] def __str__(self):
+        * return self.name
+* [x] Stage migration
+  * [x] python manage.py makemigrations
+* [x] Apply migration
+  * [x] python manage.py migrate
+* [x] Run test for Feature 3
+  * [x] python manage.py test tests.test_feature_03
+* [ ] Add, commit, and push progress
+  * [ ] git add .
+  * [ ] git commit -m "Feature 3 complete"
+  * [ ] git push
