@@ -82,7 +82,21 @@
   * [x] python manage.py migrate
 * [x] Run test for Feature 3
   * [x] python manage.py test tests.test_feature_03
+* [x] Add, commit, and push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 3 complete"
+  * [x] git push
+
+# Feature 4
+* [x] Register **Project** model to admin.py in the *projects* app
+  * [x] projects/admin.py
+    * [x] import the Project model
+      * [x] from projects.models import (Project, )
+    * [x] register Project model to admin site
+      * [x] admin.site.register(Project)
+* [x] Run Test for Feature 4
+  * [x] python manage.py test tests.test_feature_04
 * [ ] Add, commit, and push progress
   * [ ] git add .
-  * [ ] git commit -m "Feature 3 complete"
+  * [ ] git commit -m "Feature 4 complete"
   * [ ] git push
