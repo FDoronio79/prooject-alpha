@@ -160,7 +160,24 @@
           * [x] second column with the **header "Number of tasks"**
             * [x] nothing here yet because we don't have any yet
 * [x] Run Test for Feature 5
-* [ ] Add, commit, push progress
+* [x] Add, commit, push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 5 complete"
+  * [x] git push
+
+# Feature 6
+* This Feature focuses on redirecting an empty url to the projects list view. This path will be registered as home in the **tracker** project *urls.py*
+* [x] Access the urls.py in the **tracker** project
+  * [x] tracker/urls.py
+* [x] Import RedirectView
+  * [x] from django.views.generic.base import RedirectView
+* [x] Import reverse_lazy
+  * [x] from djangos.urls import reverse_lazy
+* [x] register "" path to projects/ and assign the name to "home"
+  * [x] path("", RedirectView.as_view(url=reverse_lazy("list_projects")), name="home")
+* [x] Run test for Feature 6
+  * [x] python manage.py test tests.test_feature_06
+* [ ] Add, commit, and push progress
   * [ ] git add .
-  * [ ] git commit -m "Feature 5 complete"
+  * [ ] git commit -m "Feature 6 complete"
   * [ ] git push
