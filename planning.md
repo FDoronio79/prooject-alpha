@@ -359,6 +359,50 @@
   *  [x] Run Test for Feature 13
      *  [x] python manage.py test tests.test_feature_13
   *  [x] Add, commit, push your progress
-     *  [ ] git add .
-     *  [ ] git commit -m "Feature 13 complete"
-     *  [ ] git push
+     *  [x] git add .
+     *  [x] git commit -m "Feature 13 complete"
+     *  [x] git push
+
+# Feature 14 Create a Project (create view)
+* [ ] Create a modelform for Project
+  * [ ] Create a forms.py in projects
+    * [ ] projects/new file
+      * [ ] forms.py
+    * [ ] crate ProjectForm in forms.py that displays all fields
+      * [ ] class ProjectForm(models.Form)
+                class Meta:
+                    model = Project
+                    fields = "__all__"
+* [ ] Import ProjectForm to views.py
+* [ ] Create a **create** view for the **Project** model, make sure that if the project is created to redirect to the detail view
+  * [ ] def create_project(request):
+        form = ProjectForm(request.POST or None)
+        if form.is_valid():
+            project = form.save()
+            return redierct("show_project", project.pk=pk)
+        context {
+            "form" = form
+        }
+        return render(request, "projects/create.html", context)
+* [ ] Add login decorator to function vie
+  * [ ] @login_required
+* [ ] Register the view for the path "create/" in the **projects** *urls.py* with the name "create_project"
+  * [ ] projects/urls.py
+    * [ ] import create_project
+    * [ ] path("create/", create_project, name="create_project"),
+* [ ] Create an HTML template with the following specifications:
+  * [ ] fundamental five
+  * [ ] a **main tag** containing
+    * [ ] a **div** tag containing
+      * [ ] an **h1** tag with the content "Create a new project"
+      * [ ] a **form tag** with the method post and contains
+        * [ ] a text input for **name**
+        * [ ] a text input for **description**
+        * [ ] a select tag with name **members**
+        * [ ] a button with the content **Create**
+* [x] Run Test for Feature 14
+     *  [x] python manage.py test tests.test_feature_14
+  *  [x] Add, commit, push your progress
+     *  [x] git add .
+     *  [x] git commit -m "Feature 14 complete"
+     *  [x] git push
