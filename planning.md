@@ -125,7 +125,7 @@
     * [x] urlpatterns = [ ]
   * [x] register path to urlpatterns
     * [x] path("", show_projects, name="list_projects")
-* [ ] Include the URL patterns from **projects** *app* in the **tracker** *project* with the prefix "projects/"
+* [x] Include the URL patterns from **projects** *app* in the **tracker** *project* with the prefix "projects/"
   * [x] tracker/urls.py
     * [x] import include
     * [x] from djang.urls import path, include
@@ -145,7 +145,7 @@
 * [x] Create list.html file in projects folder
   * [x] templates/projects/new file
     * [x] list.html
-* [ ] Template specifications
+* [x] Template specifications
   * [x] extend base (so the template inherits the fundamental 5 from base.html)
     * [x] {% exntends 'base.html' %}
   * [x] **main** tag that contains
@@ -177,7 +177,47 @@
   * [x] path("", RedirectView.as_view(url=reverse_lazy("list_projects")), name="home")
 * [x] Run test for Feature 6
   * [x] python manage.py test tests.test_feature_06
+* [x] Add, commit, and push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 6 complete"
+  * [x] git push
+
+# Feature 7
+* [x] Create a urls.py in the **accounts app**
+  * [x] accounts/new file
+    * [x] urls.py
+* [x] Import LoginView to urls.py
+  * [x] accounts/urls.py
+    * [x] from django.contrib.auth.views import LoginView
+* [x] Register the LoginView in the **accounts app's** *urls.py* 
+  * [x] path("login/", LoginView.as_view(), name="login")
+* [x] Include the URL patterns from **accounts** app to **tracker** project with the prefix "accounts/"
+  * [x] tracker/urls.py
+    * [x] path("accounts/", include('accounts.urls')),
+* [x] Create **templates** directory in **accounts** app
+  * [x] accounts/new folder
+    * [x] templates
+* [x] Create **registration** directory under **templates** directory
+  * [x] templates/new folder
+    * [x] registration
+* [x] Create an HTML template named **login.html** in the ***registration*** directory
+  * [x] templates/registration/new file
+    * [x] login.html
+* [x] Template specifications:
+  * [x] fundamental five
+    * [x] {% extends 'base.html %}
+    * [x] a **div** tag containing
+      * [x] an **h1** tag with the content "Login"
+      * [x] a **form** tag with the method ***"POST"*** that contains
+        * [x] an input for username
+        * [x] input for password
+        * [x] a button with the conten "Login"
+* [x] create and set the variable **LOGIN_REDIRECT_URL** to the value **home** in ***tracker*** *settings.py*
+  * [x] tracker/settings.py
+    * [x] LOGIN_REDIRECT_URL = "home"
+* [x] Run test for Feature 7
+  * [x] python manage.py test tests.test_feature_07
 * [ ] Add, commit, and push progress
   * [ ] git add .
-  * [ ] git commit -m "Feature 6 complete"
-  * [ ] git push
+  * [ ] git commit -m "Feature 7 complete"
+  * [ ] git push origin main
