@@ -320,3 +320,45 @@
   * [x] git add .
   * [x] git commit -m "Feature 12 complete"
   * [x] git push
+
+# Feature 13 Deatail View
+* [x] Create a view that shows the details of a particular project
+  * [x] projects/views.py
+    * [x] def project_details(request, pk):
+        project = Project.objects.get(pk=pk)
+        context = {
+            "project": project
+        }
+        return render(request, "projects/detail.html", context)
+* [x] Add login decorator to the detail view function, to limit access to logged in users
+  * [x] @login_required
+* [x] Register path to the project details in the **projects** *urls.py* with the path "< int:pk >/" and name "show_project"
+* [x] Create a template to show the details of the project and a table of its tasks
+  *  Template details
+     *  [x] fundamental 5
+     *  [x] a **main** tag containing
+        *  [x] a **div** tag containing
+           *  [x] a **h1** tag with the project's name as its content
+              *  [x] < h1 > {{project.name}} < /h1 >
+           *  [x] a **p** tag with the project's description
+              *  [x] < p > {{project.description}} < /p >
+           *  [x] an **h2** tag that has the contents "Tasks"
+           *  [x] *if the project has tasks*
+              *  [x] a **table** that contains
+                 *  [x] **5** columns with the headers
+                    *  [x] "Name",
+                    *  [x] "Assignee",
+                    *  [x] "Start date",
+                    *  [x] "Due date",
+                    *  [x] "Is completed"
+                 *  [x] Rows for each task in the project
+           *  [x] *else*
+              *  [x] a **p** tag with the content "This project has no tasks"
+  *  [x] Update the list template to show the number of tasks for a project
+  *  [x] Update the list templpate to have a **link** from the **project name** to the **detail view** for that project
+  *  [x] Run Test for Feature 13
+     *  [x] python manage.py test tests.test_feature_13
+  *  [x] Add, commit, push your progress
+     *  [ ] git add .
+     *  [ ] git commit -m "Feature 13 complete"
+     *  [ ] git push

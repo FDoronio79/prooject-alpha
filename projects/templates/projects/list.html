@@ -14,10 +14,14 @@
                     <th> Number of tasks </th>
                 </tr>
                 {% for project in projects %}
-                    <tr>
-                        <td>{{project.name}}</td>
-                        <td>{{project.projects.all|length}}</td>
-                    </tr>
+                <tr>
+                    <td>
+                        <a href="{% url 'show_project' project.pk %}" >
+                            {{project.name}}
+                        </a>   
+                    </td>
+                    <td>{{project.tasks.all|length}}</td>
+                </tr>
                 {% endfor %}
             </table>
         {% endif %}
