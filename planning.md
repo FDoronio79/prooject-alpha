@@ -399,7 +399,7 @@
         * [x] a text input for **name**
         * [x] a text input for **description**
         * [x] a select tag with name **members**
-        * [ ] a button with the content **Create**
+        * [x] a button with the content **Create**
 * [x] Run Test for Feature 14
      *  [x] python manage.py test tests.test_feature_14
   *  [x] Add, commit, push your progress
@@ -408,13 +408,13 @@
      *  [x] git push
 
 # Feature 15 Create view for Task model (working in the tasks project)
-* [ ] Create a forms.py in the **tasks** app
-  * [ ] tasks/new file
-    * [ ] forms.py
-* [ ] Create a TaskForm for the Task model for all the fields except is_completed
-* [ ] Import Task model from tasks.models
-  * [ ] from tasks.models import Task
-  * [ ] class TaskForm(forms.ModelForm):
+* [x] Create a forms.py in the **tasks** app
+  * [x] tasks/new file
+    * [x] forms.py
+* [x] Create a TaskForm for the Task model for all the fields except is_completed
+* [x] Import Task model from tasks.models
+  * [x] from tasks.models import Task
+  * [x] class TaskForm(forms.ModelForm):
             class Meta:
                 model = task
                 fields = [
@@ -424,10 +424,10 @@
                     'project',
                     'assignee'
                 ]
-* [ ] Import TaskForm from forms.py
-  * [ ] from tasks.forms import TaskForm
-* [ ] Create a create view for the Task model that redirects to the project if task is successfully created
-  * [ ] def create_task(request):
+* [x] Import TaskForm from forms.py
+  * [x] from tasks.forms import TaskForm
+* [x] Create a create view for the Task model that redirects to the project if task is successfully created
+  * [x] def create_task(request):
             form = TaskForm(request.POST or None)
             if form.is_valid():
                 task = form.save()
@@ -436,35 +436,65 @@
                 "form": form
             }
             return render(request, "tasks/create.html", context)
-* [ ] Apply login decorator to the view function
-  * [ ] @login_required
-* [ ] Create a *urls.py* in the **tasks** app
-* [ ] Register the view function to the path **"create/"** with the name "create_task"
-    * [ ] urlpatterns = [
+* [x] Apply login decorator to the view function
+  * [x] @login_required
+* [x] Create a *urls.py* in the **tasks** app
+* [x] Register the view function to the path **"create/"** with the name "create_task"
+    * [x] urlpatterns = [
         path("create/", create_task, name="create_task"),
     ]
-* [ ] Include the URL patterns from **tasks** app in the **tracker** project *urls.py* with the prefix **"tasks/"**
-  * [ ] path("tasks/", include("tasks.urls")),
-* [ ] Create a templates directory in the tasks project
-* [ ] Create a tasks directory in the templates directory
-* [ ] Create a template for the create view with the following specifications:
-  * [ ] fundamental five
-  * [ ] a **main** tag containing
-    * [ ] a **div** tag containing
-      * [ ] an **h1** tag with the content "Create a new task"
-      * [ ] a **form** tag that contains:
-        * [ ] a text input for **name**
-        * [ ] an input for **start_date**
-        * [ ] an input for **due_date**
-        * [ ] a selector for **projects**
-        * [ ] a selector for **assignee**
-        * [ ] a button with the content **Create**
-* [ ] Add a link to create a task from the project detail page
-  * [ ] projects/detail.html
-    * [ ] after the h2 tag create a p tag that contains the link to create a task
-      * [ ] < p > < a href="{% url 'create_task' %}> < /a > < /p>
-* [ ] Run test for Feature 15
-* [ ] Add, commit, push progress
-  * [ ] git add .
-  * [ ] git commit -m "Feature 15 complete"
-  * [ ] git push
+* [x] Include the URL patterns from **tasks** app in the **tracker** project *urls.py* with the prefix **"tasks/"**
+  * [x] path("tasks/", include("tasks.urls")),
+* [x] Create a templates directory in the tasks project
+* [x] Create a tasks directory in the templates directory
+* [x] Create a template for the create view with the following specifications:
+  * [x] fundamental five
+  * [x] a **main** tag containing
+    * [x] a **div** tag containing
+      * [x] an **h1** tag with the content "Create a new task"
+      * [x] a **form** tag that contains:
+        * [x] a text input for **name**
+        * [x] an input for **start_date**
+        * [x] an input for **due_date**
+        * [x] a selector for **projects**
+        * [x] a selector for **assignee**
+        * [x] a button with the content **Create**
+* [x] Add a link to create a task from the project detail page
+  * [x] projects/detail.html
+    * [x] after the h2 tag create a p tag that contains the link to create a task
+      * [x] < p > < a href="{% url 'create_task' %}> < /a > < /p>
+* [x] Run test for Feature 15
+* [x] Add, commit, push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 15 complete"
+  * [x] git push
+
+# Feautre 16 List view for Task
+* This list view will display the tasks specific to the logged in user
+* [x] Create a list view for the **Task** model that filters to the logged in user by using the **assignee** equal to the current logged in user
+  * [x] def show_tasks(request):
+        tasks = Task.objects.filter(assignee=request.user)
+        context = {
+            "tasks": tasks
+        }
+        return render(request, "tasks/list.html", context)
+* [x] Apply login decorator to the view function
+  * [x] @login_required
+* [x] Register the view to te **tasks** app *urls.py* to the path **"mine/"** with the name "show_my_tasks"
+  * [x] path("mine", show_tasks, name="show_my_tasks")
+* [x] Create an HTML template with the following specifications:
+  * [x] The fundamental five
+  * [x] a **main** tag that contains
+    * [x] a **div** tag that contains
+      * [x] an **h1** tag with the content "My Tasks"
+      * [x] *if there are tasks assigned to the person*
+        * [x] a **table** tag
+          * [x] **table headers**:
+            * [x] Name,
+            * [x] Start date,
+            * [x] End dat,
+            * [x] Is completed (should show the word "Done" if completed, else show nothing)
+          * [x] **table rows**
+            * [x] data of the respective headers
+      * [x] *else*
+        * [x] a **p** tag with the content "You have no tasks"

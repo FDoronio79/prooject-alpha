@@ -9,12 +9,16 @@
     <body>
         <header>
             <nav>
+                <a href="{% url 'logout' %}">
+                    <p> Logout </p>
+                </a>
                 <a href="{% url 'home' %}">
                     <p> Home </p>
                 </a>
                 <a href="{% url 'create_project' %}">
                     <p>Create a new project</p>
                 </a>
+
             </nav>
         </header>
         <main>
