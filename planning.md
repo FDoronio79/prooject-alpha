@@ -498,3 +498,36 @@
             * [x] data of the respective headers
       * [x] *else*
         * [x] a **p** tag with the content "You have no tasks"
+* [x] Run test for Feature 16
+  * [x] python manage.py test tests.test_feature_16
+* [x] Add, commit, push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 16 complete"
+  * [x] git push
+
+# Feature 17 Update Staus
+* This feature allows a person to update the status on one of their assigned tasks from incomplete to complete.
+* [x] Create an update view for the Task model taht only is concerned with the **is_completed** field and after submissions reidrects to the **"show_my_tasks"** url path
+  * [x] def update_task_status(request, pk):
+            is_completed = request.POST.get('is_completed')
+            task = Task.objects.get(pk=pk)
+            try:
+                task.is_completed = is_completed
+                task.save()
+            except IntegrityError:
+                pass
+            return redirect("show_my_tasks")
+* [x] Register the view for the app "< int:pk >/complete/" and the name "**complete_task**
+  * [x] path("< int:pk>/complete/", update_task_status, name="complete_task")
+* [x] Modify the **My Tasks** *template* tp comply with the template specification:
+  * [x] < form method="post" action="{% url 'complete_task' task.id %}">
+  {% csrf_token %}
+  < input type="hidden" name="is_completed" value="True">
+  < button>Complete< /button>
+< /form>
+* [x] Run test for Feature 17
+  * [x] python manage.py test tests.test_feature_17
+* [x] Add, commit, push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 17 complete"
+  * [x] git push
