@@ -247,9 +247,23 @@
 * [x] Create and set the variable **LOGOUT_REDIRECT_URL** to the value ***"login"*** in the **tracker** project's *settings.py*
   * [x] tracker/settings.py
     * [x] LOGOUT_REDIRECT_URL = "login"
-* [ ] Run test for Feature 9
-  * [ ] python manage.py test tests.test_feature_09
-* Add, commit, push progress
-  * git add .
-  * git commit -m "Feature 9 complete"
-  * git push
+* [x] Run test for Feature 9
+  * [x] python manage.py test tests.test_feature_09
+* [x] Add, commit, push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 9 complete"
+  * [x] git push
+
+# Feature 10
+* [x] Import UserCreationForm
+* [x] You'll need to use the special create_user  method to create a new user account from their username and password
+* [x] You'll need to use the login  function that logs an account in
+* [x] After you have created the user, redirect the browser to the path registered with the name "home"
+* [x] Create an HTML template named signup.html in the registration directory
+* [x] Put a post form in the signup.html and any other required HTML or template inheritance stuff that you need to make it a valid Web page with the fundamental five (see specifications below)
+* [ ] Run Test for Feature 10
+  * [ ] python manage.py test tests.test_feature_10
+* [ ] Add, commit, push progress
+  * [ ] git add .
+  * [ ] git commit -m "Feature 10 complete"
+  * [ ] git push
