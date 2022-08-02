@@ -233,10 +233,23 @@
   * [x] projects = request.user.projects.all()
 * [x] Run test for Feature 8
   * [x] python manage.py test tests.test_feature_08
-* [ ] Add, commit, and push progress
-  * [ ] git add .
-  * [ ] git commit -m "Feature 8 complete"
-  * [ ] git push
+* [x] Add, commit, and push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 8 complete"
+  * [x] git push
 
 
 # Feature 9
+* [x] Import the **LogoutView** into the *accounts/urls.py* file
+  * [x] from django.contrib.auth.views import LoginView, LogoutView
+* [x] Register the view in the urlpatterns with the path "logout/" and the name "logout"
+  * [x] path('logout/', LogoutView.as_view(), name="logout")
+* [x] Create and set the variable **LOGOUT_REDIRECT_URL** to the value ***"login"*** in the **tracker** project's *settings.py*
+  * [x] tracker/settings.py
+    * [x] LOGOUT_REDIRECT_URL = "login"
+* [ ] Run test for Feature 9
+  * [ ] python manage.py test tests.test_feature_09
+* Add, commit, push progress
+  * git add .
+  * git commit -m "Feature 9 complete"
+  * git push
