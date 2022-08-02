@@ -275,8 +275,8 @@
   * [x] from django.contrib.auth.models import User
 * [x] Create a Task model in the **task** app
   * [x] class Task(models.Model):
-* [ ] Create and set attributes
-  * [ ] Name | Type | Constraints
+* [x] Create and set attributes
+  * [x] Name | Type | Constraints
     * [x] name, string, maximum length of 200 characters
       * [x] name = models.CharField(max_length=200)
     * [x] start_datem, date-time, none
@@ -298,7 +298,25 @@
   * [x] python manage.py migrate
 * [x] Run Test for Feature 11
   *  [x] python manage.py test tests.test_feature_11
-* [ ] Add, commit, push progress
-  * [ ] git add .
-  * [ ] git commit -m "Feature 11 complete"
-  * [ ] git push
+* [x] Add, commit, push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 11 complete"
+  * [x] git push
+
+# Feature 12
+* [x] Register the Task model with the Django admin site
+  * [x] tasks/admin.py
+  * [x] Import Task model
+    * [x] from tasks.models import Task
+  * [x] register Task model
+    * [x] admin.site.register(Task)
+* [x] Stage migration
+  * [x] python manage.py makemigrations
+* [x] Apply migration
+  * [x] pyhton manage.py migrate
+* [x] Run Test for Feature 12
+  * [x] python manage.py test tests.test_feature_12
+* [x] Add, commit, push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 12 complete"
+  * [x] git push
