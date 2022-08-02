@@ -261,9 +261,44 @@
 * [x] After you have created the user, redirect the browser to the path registered with the name "home"
 * [x] Create an HTML template named signup.html in the registration directory
 * [x] Put a post form in the signup.html and any other required HTML or template inheritance stuff that you need to make it a valid Web page with the fundamental five (see specifications below)
-* [ ] Run Test for Feature 10
-  * [ ] python manage.py test tests.test_feature_10
+* [x] Run Test for Feature 10
+  * [x] python manage.py test tests.test_feature_10
+* [x] Add, commit, push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 10 complete"
+  * [x] git push
+
+# Feature 11
+* [x] Import the ***Project*** model from **projects** app
+  * [x] from projects.models import Project
+* [x] Import User model
+  * [x] from django.contrib.auth.models import User
+* [x] Create a Task model in the **task** app
+  * [x] class Task(models.Model):
+* [ ] Create and set attributes
+  * [ ] Name | Type | Constraints
+    * [x] name, string, maximum length of 200 characters
+      * [x] name = models.CharField(max_length=200)
+    * [x] start_datem, date-time, none
+      * [x] start_date = models.DateTimeField()
+    * [x] due_date, date-time, none
+      * [x] due_date = models.DateTimeField()
+    * [x] is_completed, Boolean, default value should be false
+      * [x] is_completed = models.BooleanField(default = False)
+    * [x] project, foreign key, Refers to **projects.Project** model, related name "tasks", on delete cascade
+      * [x] project = models.ForeignKey(Project, related_name="tasks", on_delete=models.CASCADE)
+    * [x] assignee, foreign key, Refers to the auth.User model, null is True, related name "tasks", on delete set null
+      * [x] assignee = models.ForeignKey(User, related_name="tasks", on_delete=models.SET_NULL)
+* [x] Task should convert **name** property to string using __str__ method
+  * [x] def __str__(self):
+          * return self.name
+* [x] Stage migration
+  * [x] python manage.py makemigrations
+* [x] Apply migration
+  * [x] python manage.py migrate
+* [x] Run Test for Feature 11
+  *  [x] python manage.py test tests.test_feature_11
 * [ ] Add, commit, push progress
   * [ ] git add .
-  * [ ] git commit -m "Feature 10 complete"
+  * [ ] git commit -m "Feature 11 complete"
   * [ ] git push
