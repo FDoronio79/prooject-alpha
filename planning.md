@@ -217,7 +217,26 @@
     * [x] LOGIN_REDIRECT_URL = "home"
 * [x] Run test for Feature 7
   * [x] python manage.py test tests.test_feature_07
+* [x] Add, commit, and push progress
+  * [x] git add .
+  * [x] git commit -m "Feature 7 complete"
+  * [x] git push origin main
+
+# Feature 8
+* [x] Protect the list view for the **Project** model so that only *logged in* users can acces it
+  * [x] projects/views.py
+    * [x] import login_required decorator
+      * [x] from django.contrib.auth.deocrators import login_required
+    * [x] apply decorator to list view
+      * [x] @login_required to show_projects
+* [x] Change the queryset of the view to filter the **Project** objects where **members** equals the ***logged in user***
+  * [x] projects = request.user.projects.all()
+* [x] Run test for Feature 8
+  * [x] python manage.py test tests.test_feature_08
 * [ ] Add, commit, and push progress
   * [ ] git add .
-  * [ ] git commit -m "Feature 7 complete"
-  * [ ] git push origin main
+  * [ ] git commit -m "Feature 8 complete"
+  * [ ] git push
+
+
+# Feature 9
