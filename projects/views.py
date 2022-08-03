@@ -11,17 +11,14 @@ def show_projects(request):
     projects = request.user.projects.all()
     context = {
         "projects": projects,
-
     }
-    return render(request, 'projects/list.html', context)
+    return render(request, "projects/list.html", context)
 
 
 @login_required
 def project_details(request, pk):
     projects = Project.objects.get(pk=pk)
-    context = {
-        "project": projects
-    }
+    context = {"project": projects}
     return render(request, "projects/detail.html", context)
 
 
@@ -31,7 +28,5 @@ def create_project(request):
     if form.is_valid():
         project = form.save()
         return redirect("show_project", pk=project.pk)
-    context = {
-        "form": form
-    }
+    context = {"form": form}
     return render(request, "projects/create.html", context)

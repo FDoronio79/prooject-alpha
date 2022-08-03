@@ -11,23 +11,19 @@ def create_task(request):
     if form.is_valid():
         task = form.save()
         return redirect("show_project", pk=task.project.pk)
-    context = {
-        "form": form
-    }
+    context = {"form": form}
     return render(request, "tasks/create.html", context)
 
 
 @login_required
 def show_tasks(request):
     tasks = Task.objects.filter(assignee=request.user)
-    context = {
-        "tasks": tasks
-    }
+    context = {"tasks": tasks}
     return render(request, "tasks/list.html", context)
 
 
 def update_task_status(request, pk):
-    is_completed = request.POST.get('is_completed')
+    is_completed = request.POST.get("is_completed")
     task = Task.objects.get(pk=pk)
     try:
         task.is_completed = is_completed

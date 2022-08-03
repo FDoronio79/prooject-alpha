@@ -10,8 +10,8 @@
                 </a>
             </p>
             {% if projects|length == 0 %}
-                <p> 
-                    You are not assigned to any projects 
+                <p>
+                    You are not assigned to any projects
                 </p>
             {% else %}
                 <table>
@@ -20,14 +20,14 @@
                         <th> Number of tasks </th>
                     </tr>
                     {% for project in projects %}
-                    <tr>
-                        <td>
-                            <a href="{% url 'show_project' project.pk %}" >
-                                {{project.name}}
-                            </a>   
-                        </td>
-                        <td>{{project.tasks.all|length}}</td>
-                    </tr>
+                        <tr>
+                            <td>
+                                <a href="{% url 'show_project' project.pk %}" >
+                                    {{project.name}}
+                                </a>
+                            </td>
+                            <td>{{project.tasks.all|length}}</td>
+                        </tr>
                     {% endfor %}
                 </table>
             {% endif %}

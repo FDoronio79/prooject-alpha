@@ -550,3 +550,25 @@
   * [x] git commit -m "Featuer 18 complete"
   * [x] git push
  
+# Submission
+* [x] Format code using the following command:
+    * [x] black accounts projects tasks tracker
+* [x] Format HTML templates:
+  * [x] djhtml -i tasks/templates/tasks/create.html
+  * [x] djhtml -i tasks/templates/tasks/list.html
+  * [x] djhtml -i projects/templates/base.html
+  * [x] djhtml -i projects/templates/projects/create.html
+  * [x] djhtml -i projects/templates/projects/detail.html
+  * [x] djhtml -i projects/templates/projects/list.html
+  * [x] djhtml -i accounts/templates/accounts/login.html
+  * [x] djhtml -i accounts/templates/accounts/signup.html
+* [x] Check for unused imports or variables with:
+  * [x] flake8 --select F401,F403,F541,F601,F631,F632,F634,F701,F702,F703,F706,F707,F811,F821,F823,F831,F841 projects accounts tasks tracker
+* [x] Delete any files that Django generated and you didn't use
+  * [x] git rm << path/to/file.py >>
+* [x] Run unit tests
+  * [x] python manage.py test
+* [x] Add, commit, and push final project
+  * [x] git add .
+  * [x] git commit -m "Final submission"
+  * [x] git push origin main

@@ -7,10 +7,4 @@ from tasks.models import (
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = [
-            'name',
-            'start_date',
-            'due_date',
-            'project',
-            'assignee'
-        ]
+        fields = ["name", "start_date", "due_date", "project", "assignee"]
