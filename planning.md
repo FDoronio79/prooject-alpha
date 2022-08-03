@@ -531,3 +531,22 @@
   * [x] git add .
   * [x] git commit -m "Feature 17 complete"
   * [x] git push
+
+# Feature 18 Description Markdown enabled
+* In this, you will take the project description and make it Markdown enabled.
+* [x] Install the django-markdownify package using pip (the first pip command in the instructions) and put it into the INSTALLED_APPS in the tracker settings.py according to the Installation  instructions block
+  * [x] pip install django-markdownify
+* [x] Also, in the tracker settings.py file, add the configuration setting to disable sanitation 
+* [x] In your the template for the Project detail view, load the markdownify template library as shown in the Usage  section
+  * [x] {% load markdownify %}
+* [x] Replace the p tag and {{ project.description }} in the Project detail view with this code
+  * [x] {{ project.description|markdownify }}
+* [x] Use pip freeze to update your requirements.txt file
+  * [x] pip freeze > requirements.txt
+* [x] Run test for Feature 18
+  * [x] python manage.py test tests.test_feature_18
+* [x] Add, commit, push progress
+  * [x] git add .
+  * [x] git commit -m "Featuer 18 complete"
+  * [x] git push
+ 

@@ -9,21 +9,39 @@
     <body>
         <header>
             <nav>
-                <a href="{% url 'logout' %}">
-                    <p> Logout </p>
-                </a>
-                <a href="{% url 'home' %}">
-                    <p> Home </p>
-                </a>
-                <a href="{% url 'create_project' %}">
-                    <p>Create a new project</p>
-                </a>
-
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'show_my_tasks' %}">
+                            <p> My tasks </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'list_projects' %}">
+                            <p>My projects</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">
+                            <p> Logout </p>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}">
+                            Login
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'signup' %}">
+                            Signup
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
             </nav>
         </header>
-        <main>
-            {% block content%}
-            {% endblock %}
-        </main>
+        {% block content%}
+        {% endblock %}
     </body>
 </html>

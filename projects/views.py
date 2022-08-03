@@ -5,6 +5,7 @@ from projects.models import (
 )
 from projects.forms import ProjectForm
 
+
 @login_required
 def show_projects(request):
     projects = request.user.projects.all()

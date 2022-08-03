@@ -1,37 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
-        <h1> My Tasks </h1>
-        {% if tasks|length > 0 %}
-            <table>
-                <tr>
-                    <th> Name </th>
-                    <th> Start date </th>
-                    <th> End date </th>
-                    <th> Is completed </th>
-                </tr>
-                    {% for task in tasks %}
+    <main>
+        <div>
+            <h1> My Tasks </h1>
+            <p>
+                <a href="{% url 'create_project' %}">
+                    Create a new project
+                </a>
+            </p>
+            {% if tasks|length > 0 %}
+                <table>
                     <tr>
-                        <td>{{task.name}}</td>
-                        <td>{{task.start_date}}</td>
-                        <td>{{task.due_date}}</td>
-                        {% if task.is_completed is True %}
-                            <td> Done </td>
-                        {% else %}
-                        <td>
-                            <form method="post" action="{% url 'complete_task' task.id %}">
-                                {% csrf_token %}
-                                <input type="hidden" name="is_completed" value="True">
-                                <button>Complete</button>
-                            </form>
-                            {% endif %}
-                        </td>
+                        <th> Name </th>
+                        <th> Start date </th>
+                        <th> End date </th>
+                        <th> Is completed </th>
                     </tr>
-                    {% endfor %}
-            </table>
-        {% else %}
-            <p> You have no tasks </p>
-        {% endif %}
-    </div>
+                        {% for task in tasks %}
+                        <tr>
+                            <td>{{task.name}}</td>
+                            <td>{{task.start_date}}</td>
+                            <td>{{task.due_date}}</td>
+                            {% if task.is_completed is True %}
+                                <td> Done </td>
+                            {% else %}
+                            <td>
+                                <form method="post" action="{% url 'complete_task' task.id %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="is_completed" value="True">
+                                    <button>Complete</button>
+                                </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                </table>
+            {% else %}
+                <p> You have no tasks </p>
+            {% endif %}
+        </div>
+    </main>
 {% endblock %}
